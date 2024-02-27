@@ -12,6 +12,7 @@
     - [Inhaltsverzeichnis](#inhaltsverzeichnis)
     - [Begriff Funktion](#begriff-funktion)
     - [Imperative vs. Deklarative](#imperative-vs-deklarative)
+    - [Merkmale einer pure function](#merkmale-einer-pure-function)
 
 ---
 
@@ -51,3 +52,13 @@ Diese Funktion erhält einen String als Parameter und retourniert das erste Zeic
 - Beispiele für deklarative Paradigmen sind die funktionale Programmierung (z.B. Haskell) und die logische Programmierung (z.B. Prolog).
 
 ---
+
+### Merkmale einer pure function
+
+Wenn alle die folgenden Eigenschaften erfüllt sind, ist eine Funktion eine sogenannte "pure function":
+
+- Gibt nur einen Wert zurück (Wenn die Funktion einen Array zurückgibt, gilt das dennoch als ein Wert - nämlich ein Array)
+- Berechnet den Rückgabewert nur aufgrund der ihr übergebenen Parameter
+- Verändert keine existierenden Werte (neue in der Funktion selber definierte Werte dürfen verändert werden)
+
+Weil sich eine pure function an diese drei Regeln hält, ist sie referenziell Transparent - d. h. Sie könnte auch durch Ihren Return-Wert ersetzt werden, ohne dass sich die Funktionalität des Programmes ändert.
