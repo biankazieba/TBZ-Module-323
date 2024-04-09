@@ -17,6 +17,9 @@
     - [Unveränderliche Datenstrukturen](#unveränderliche-datenstrukturen)
     - [Call by Value](#call-by-value)
     - [Call by Reference](#call-by-reference)
+    - [Lazy vs. Eager Evaluation](#lazy-vs-eager-evaluation)
+    - [Functions as Values](#functions-as-values)
+      - [Höhere Funktionen (HOF)](#höhere-funktionen-hof)
 
 ---
 
@@ -98,3 +101,37 @@ Es ist wichtig, dass Funktionen immer per Wert übergeben werden, damit Kopien a
 [Call by Reference](#call-by-reference) bedeutet, dass Funktionen eine Referenz auf eine Variable übergeben wird. Änderungen an dieser Variable wirken sich nicht nur innerhalb der Funktion aus, sondern auch außerhalb.
 
 ---
+
+### Lazy vs. Eager Evaluation
+
+Der Unterschied liegt darin, wann Ausdrücke ausgewertet werden. Bei der [Lazyevaluation](#lazy-evaluation) werden Ausdrücke erst bei Bedarf ausgewertet, während sie bei der [Eagerevaluation](#eager-evaluation) sofort ausgewertet werden.
+
+Lazy-Evaluations-Beispiel:
+
+```javascript
+function lazyAdd(a, b) {
+    console.log("Addition"); // Wird nur bei Bedarf ausgeführt
+    return () => a + b;
+}
+
+console.log("Start");
+let resultFunc = lazyAdd(3, 4); // "Addition" wird nicht ausgegeben
+console.log("Mitte");
+let result = resultFunc(); // "Addition" wird jetzt ausgegeben
+console.log(result); //
+```
+
+### Functions as Values
+
+- Java Streams: Beliebt für funktionale Ansätze, aber oft mit komplexerer Code-Struktur.
+- Scala: Bietet Unveränderlichkeit (immutable lists) und prägnanten, deklarativen Code.
+
+#### Höhere Funktionen (HOF)
+
+Eine HOF (High Order Function) in Scala ist eine Funktion, die eine andere Funktion annimmt und/oder eine Funktion zurückgibt. Ein Beispiel dafür ist:
+
+```scala
+def applyOperation(numbers: List[Int], operation: Int => Int): List[Int] = {
+  numbers.map(operation)
+}
+```
