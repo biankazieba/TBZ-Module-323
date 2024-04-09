@@ -13,6 +13,10 @@
     - [Begriff Funktion](#begriff-funktion)
     - [Imperative vs. Deklarative](#imperative-vs-deklarative)
     - [Merkmale einer pure function](#merkmale-einer-pure-function)
+    - [Rein funktionale Ansätze](#rein-funktionale-ansätze)
+    - [Unveränderliche Datenstrukturen](#unveränderliche-datenstrukturen)
+    - [Call by Value](#call-by-value)
+    - [Call by Reference](#call-by-reference)
 
 ---
 
@@ -62,3 +66,35 @@ Wenn alle die folgenden Eigenschaften erfüllt sind, ist eine Funktion eine soge
 - Verändert keine existierenden Werte (neue in der Funktion selber definierte Werte dürfen verändert werden)
 
 Weil sich eine pure function an diese drei Regeln hält, ist sie referenziell Transparent - d. h. Sie könnte auch durch Ihren Return-Wert ersetzt werden, ohne dass sich die Funktionalität des Programmes ändert.
+
+### Rein funktionale Ansätze
+
+Rein funktionale Funktionen erfüllen drei Regeln (siehe PureFunctions Aufgabe 1):
+
+1. [Ein Rückgabewert pro Funktion](#nur-ein-rückgabewert)
+2. [Rückgabewert abhängig von den Parametern](#rückgabewert-nur-abhängig-von-den-aufrufparametern)
+3. [Keine Veränderung von Werten außerhalb der Funktion](#verändert-keine-existierenden-werte-außerhalb-der-methode)
+
+---
+
+### Unveränderliche Datenstrukturen
+
+Unveränderlichkeit kann auf zwei Arten erreicht werden:
+
+- [Kopie der Daten](#kopie-der-daten): Die Originaldaten bleiben unverändert, während eine Kopie erstellt wird, die bearbeitet werden kann.
+- [Rekursion](#rekursion): Durch rekursive Funktionsaufrufe werden neue Kopien von lokalen Variablen erzeugt.
+Es ist wichtig, dass Funktionen immer per Wert übergeben werden, damit Kopien anstelle von Referenzen übertragen werden. Funktionale Sprachen verhindern oft die Referenzübertragung, um die Anwendung des funktionalen Paradigmas zu fördern.
+
+---
+
+### Call by Value
+
+[Call by Value](#call-by-value) bedeutet, dass Funktionen Kopien der Originaldaten übergeben werden. Änderungen in der Funktion haben keine Auswirkungen auf externe Variablen.
+
+---
+
+### Call by Reference
+
+[Call by Reference](#call-by-reference) bedeutet, dass Funktionen eine Referenz auf eine Variable übergeben wird. Änderungen an dieser Variable wirken sich nicht nur innerhalb der Funktion aus, sondern auch außerhalb.
+
+---
